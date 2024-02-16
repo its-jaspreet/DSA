@@ -10,7 +10,11 @@ public:
         }
 
         int original = x;
-        int reversed = 0;
+        long long reversed = 0;
+        
+        //! with use case where x = 12345678991, the following error arises:
+        //* runtime error: signed integer overflow: 998765432 * 10 cannot be represented in type 'int' 
+        //* therefore instead of "int reversed = 0;", we make it "long long reversed = 0;""
 
         while (original > 0) {
             int digit = original % 10;
