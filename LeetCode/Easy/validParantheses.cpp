@@ -1,10 +1,29 @@
 #include <iostream>
 #include <string>
+#include <map>
+#include <vector>
+
 using namespace std;
 
 class Solution {
 public:
     bool isValid(string s) {
+        map <char, vector<int>> open;
+        map <char, vector<int>> close;
+        open['('] = open['{'] = open['['] = {0};
+        close[')'] = close['}'] = close[']'] = {0};
+        
+        int prev, curr, len;
+        for (int i = 1; i < s.length(); i++) {
+            prev = i - 1;
+            curr = i;
+            len = s.length();
+
+            if (s[prev] == open.first && s[curr] == close.first) {
+                
+            }
+
+        }
         
     }
 };
