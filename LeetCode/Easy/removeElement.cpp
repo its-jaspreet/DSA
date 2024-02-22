@@ -6,14 +6,24 @@ using namespace std;
 class Solution {
 public:
     vector<int> removeElement(vector<int>& nums, int val) {
-        int j = 0;
-        for (int i = 0; i < nums.size(); i++) {
+        int i = 0, j = nums.size() - 1, ctr = 0;
+        while (i <= j) {
+            if (nums[j] == val) {
+                j -= 1;
+            }
             if (nums[i] != val) {
-                nums[j] = nums[i];
-                j++;
+                i += 1;
+            } else {
+                int temp;
+                temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+                ctr++;
             }
         }
-        nums.resize(j);
+        for (int k = 0; k <= ctr; k++) {
+            nums.pop_back();
+        }
         return nums;
     }
 };
