@@ -47,5 +47,21 @@ int main() {
     cout << endl;
     //cout << ans2 << endl;
 
+    vector<int> case3 = {2};
+    vector<int> ans3 = mySol.removeElement(case3, 2);
+    for (int i = 0; i < ans3.size(); i++) {
+        cout << ans3[i] << " ";
+    }
+    cout << endl;
+    //cout << ans3 << endl;
+
+    vector<int> case4 = {};
+    vector<int> ans4 = mySol.removeElement(case3, 3);
+    for (int i = 0; i < ans4.size(); i++) {
+        cout << ans4[i] << " ";
+    }
+    cout << endl;
+    //cout << ans4 << endl;
+
     return 0;
 }
