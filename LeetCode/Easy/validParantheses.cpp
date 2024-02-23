@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <map>
 #include <vector>
 
 using namespace std;
@@ -8,23 +7,20 @@ using namespace std;
 class Solution {
 public:
     bool isValid(string s) {
-        map <char, vector<int>> open;
-        map <char, vector<int>> close;
-        open['('] = open['{'] = open['['] = {0};
-        close[')'] = close['}'] = close[']'] = {0};
-        
-        int prev, curr, len;
-        for (int i = 1; i < s.length(); i++) {
-            prev = i - 1;
-            curr = i;
-            len = s.length();
-
-            if (s[prev] == open.first && s[curr] == close.first) {
-                
+        vector<char> stack = {};
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == '(' || s[i] == '{' || s[i] == '[') {
+                stack.push_back(s[i]);
+            } else if (!stack.empty() && 
+            ((s[i] == ')' && stack[stack.size() - 1] == '(') || 
+            (s[i] == ']' && stack[stack.size() - 1] == '[') || 
+            (s[i] == '}' && stack[stack.size() - 1] == '{'))) {
+                stack.pop_back();
+            } else {
+                return false;
             }
-
         }
-        
+        return stack.empty();
     }
 };
 
@@ -46,6 +42,14 @@ int main() {
     string case4 = "([{()()[()]}])";
     bool ans4 = sol.isValid(case4);
     cout << ans4 << endl;    
+
+    string case5 = "([{()()[()]}]]";
+    bool ans5 = sol.isValid(case5);
+    cout << ans5 << endl;
+
+    string case6 = "]";
+    bool ans6 = sol.isValid(case6);
+    cout << ans6 << endl;
 
     return 0;
 }
