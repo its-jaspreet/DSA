@@ -7,6 +7,7 @@ class Solution {
 public:
     int lengthOfLastWord(string s) {
         string a = "";
+
         for (int i = s.length() - 1; i >= 0; i--) {
             if (isspace(s[i])) {
                 continue;
@@ -14,6 +15,10 @@ public:
                 while ((!isspace(s[i])) && (i >= 0)) {
                     a += s[i];
                     i--;
+                    if ((i == 0) && (!isspace(s[i]))) {
+                        a += s[i];
+                        break;
+                    }
                 }
                 break;
             }
@@ -37,11 +42,11 @@ int main() {
     int ans3 = sol.lengthOfLastWord(case3);
     cout << ans3 << endl;
 
-    string case4 = "";
+    string case4 = " ";
     int ans4 = sol.lengthOfLastWord(case4);
     cout << ans4 << endl;
 
-    string case5 = "a ";
+    string case5 = " a";
     int ans5 = sol.lengthOfLastWord(case5);
     cout << ans5 << endl;
 }
