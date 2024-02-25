@@ -36,4 +36,12 @@ int main() {
     string case3 = "luffy is still joyboy";
     int ans3 = sol.lengthOfLastWord(case3);
     cout << ans3 << endl;
+
+    string case4 = "";
+    int ans4 = sol.lengthOfLastWord(case4);
+    cout << ans4 << endl;
+
+    string case5 = "a ";
+    int ans5 = sol.lengthOfLastWord(case5);
+    cout << ans5 << endl;
 }
