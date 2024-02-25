@@ -11,7 +11,7 @@ public:
             if (isspace(s[i])) {
                 continue;
             } else {
-                while ((!isspace(s[i])) && (s[i] >= 0)) {
+                while ((!isspace(s[i])) && (i >= 0)) {
                     a += s[i];
                     i--;
                 }
