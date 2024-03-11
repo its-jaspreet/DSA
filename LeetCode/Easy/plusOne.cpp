@@ -1,11 +1,20 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
 class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
+        int num = 0, k = 0;
+        for (int i = digits.size() - 1; i >= 0; i--) {
+            num = num + (digits[i] * pow(10, k));
+            cout << num << "hm";
+            k += 1;
+        }
+        cout << num << "\t";
+
         return digits;
     }
 

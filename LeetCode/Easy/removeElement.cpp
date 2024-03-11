@@ -68,7 +68,7 @@ int main() {
     vector<int> ans4 = mySol.removeElement(case4, 3);
     for (int i = 0; i < ans4.size(); i++) {
         cout << ans4[i] << " ";
-    }
+    }rot
     cout << endl;
     //cout << ans4 << endl;
 

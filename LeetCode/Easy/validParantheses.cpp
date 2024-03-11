@@ -9,6 +9,9 @@ public:
     bool isValid(string s) {
         vector<char> stack = {};
         for (int i = 0; i < s.length(); i++) {
+            if (s[i] == '(' && s[i] != '{' && s[i] != '[' && s[i] == ')' && s[i] != '}' && s[i] != ']') {
+                continue;
+            }
             if (s[i] == '(' || s[i] == '{' || s[i] == '[') {
                 stack.push_back(s[i]);
             } else if (!stack.empty() && 
@@ -35,7 +38,7 @@ int main() {
     bool ans2 = sol.isValid(case2);
     cout << ans2 << endl;
 
-    string case3 = "(]";
+    string case3 = "(a]";
     bool ans3 = sol.isValid(case3);
     cout << ans3 << endl;
 
